@@ -3,6 +3,7 @@ import Sidebar from "../components/sidebar";
 import Chat from "../components/Chat";
 import "../scss/Home.scss";
 import { chatList, objectChat } from "../interface/interface";
+import PopupError from '../components/error'
 
 type storag = {
   idx: number;
@@ -25,7 +26,11 @@ const Home = () => {
     store !== null ? false : true
   );
 
-  console.log(store?.idx);
+  const [Popup ,setPopup] = useState<boolean>(false)
+
+  const changepopup =(flag:boolean)=>{
+    setPopup(flag)
+  }
 
   useEffect(() => {
     retrieveItemFromCache();
@@ -65,6 +70,7 @@ const Home = () => {
       addNewChat();
     }
   }, [newchat]);
+
 
   useEffect(() => {
     console.log(currentchatID);
@@ -156,6 +162,9 @@ const Home = () => {
 
   return (
     <div className="Home">
+      {Popup===true && (
+        <PopupError changepopup={changepopup}/>
+      )}
       <Sidebar
         newchat={newchat}
         changenewchat={changenewchat}
@@ -167,6 +176,9 @@ const Home = () => {
         deleteItemFromCache={deleteItemFromCache}
         sidebar={sidebar}
         changesidebar={changesidebar}
+        changepopup={changepopup}
+        Popup={Popup}
+        
       />
       <Chat
         newchat={newchat}
@@ -179,6 +191,8 @@ const Home = () => {
         deleteItemFromCache={deleteItemFromCache}
         sidebar={sidebar}
         changesidebar={changesidebar}
+        changepopup={changepopup}
+        Popup={Popup}
       />
     </div>
   );

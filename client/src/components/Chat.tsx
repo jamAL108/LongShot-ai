@@ -18,6 +18,7 @@ const Chat: React.FC<ChildComponentProps> = (props) => {
     addItemToCache,
     sidebar,
     changesidebar,
+    changepopup
   } = props;
 
   const [CompletedTyping, setCompletedTyping] = useState<boolean>(true);
@@ -86,7 +87,7 @@ const Chat: React.FC<ChildComponentProps> = (props) => {
     setapidone(true);
     console.log(query);
     const URL = "https://api-v2.longshot.ai/custom/api/generate/instruct";
-    const bearerToken = "aa4b97f2dd3f7454d7b460e7c7ec8684924564d9";
+    const bearerToken = "dce3c0453da6b43e67d05ffb932aa24fb4671310";
     const data = {
       text: query,
     };
@@ -110,10 +111,15 @@ const Chat: React.FC<ChildComponentProps> = (props) => {
         body: JSON.stringify(data),
       });
       const msg = await res.json();
+      if(res.status===429){
+        changepopup(true)
+        setCompletedTyping(true);
+      }else{
       console.log(msg.copies[0]);
       temp[temp.length - 1].content = msg.copies[0].content;
       setchatHistory(temp);
       setresrecieved(true);
+      }
     } catch (err) {
       console.log(err);
     }

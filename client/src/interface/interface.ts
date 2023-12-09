@@ -8,7 +8,13 @@ export interface ChildComponentProps{
     addItemToCache: (index:number, chatadd:chatList) =>void,
     deleteItemFromCache: (index:number) => void,
     sidebar:boolean,
-    changesidebar:(flag:boolean) =>void
+    changesidebar:(flag:boolean) =>void,
+    changepopup: (flag:boolean)=>void,
+    Popup:boolean
+}
+
+export interface popupinterface {
+    changepopup: (flag:boolean)=>void
 }
 
 export interface samplechat{
