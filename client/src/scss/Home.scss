@@ -284,7 +284,7 @@
           height: 100%;
           display: grid;
           grid-template-columns: 1fr;
-          grid-template-rows: repeat(auto-fill, minmax(100px, auto));
+          // grid-template-rows: repeat(auto-fill, minmax(100px, auto));
           justify-content: flex-start;
           align-items: flex-start;
           gap: 33px;
@@ -652,7 +652,7 @@
 
         .up {
           width: 100%;
-          height: 84%;
+          height: 80%;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -743,7 +743,6 @@
             height: 100%;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(auto-fill, minmax(100px, auto));
             justify-content: center;
             align-items: flex-start !important;
             gap: 33px;
@@ -840,7 +839,7 @@
         }
 
         .down {
-          height: 16%;
+          height: 20%;
           width: 100%;
           display: flex;
           justify-content: center;
