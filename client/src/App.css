@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Inter:wght@300&family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+
+
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto' , sans-serif;
+  background-color: #343541;
+}
