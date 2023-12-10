@@ -39,6 +39,7 @@ const Sidebar: React.FC<ChildComponentProps> = (props) => {
         className="newchat"
         onClick={(e) => {
           e.preventDefault();
+          changesidebar(false)
           changenewchat(true);
         }}
       >
